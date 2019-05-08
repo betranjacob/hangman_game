@@ -1,2 +1,3 @@
-# hangman_game
-hangman_game_exercise
+# Hangman Game Simulation 
+https://en.wikipedia.org/wiki/Hangman_(game)
+Tested on Python 3.7
