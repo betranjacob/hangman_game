@@ -62,7 +62,7 @@ def update_dashes(secret, cur_dash, rec_guess):
 
 def play_hangman(secret_word):
 
-    print(secret_word)
+    #print(secret_word)
     print("Welcome to Hangman Game")
     print('The secret word has {} letters'.format(len(secret_word)))
     # Set the dashes to the length of the secret word and set the amount of guesses to 9
