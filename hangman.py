@@ -62,45 +62,41 @@ def update_dashes(secret, cur_dash, rec_guess):
 
 def play_hangman(secret_word):
 
-    #print(secret_word)
-    print('##### Welcome to Hangman Game #####')
+    print(secret_word)
+    print("Welcome to Hangman Game")
     print('The secret word has {} letters'.format(len(secret_word)))
     # Set the dashes to the length of the secret word and set the amount of guesses to 9
     dashes = "-" * len(secret_word)
     guesses_left = NUMBER_OF_GUESSES
 
-    # This will loop as long as BOTH conditions are true:
-    # 1. The number of guesses of left is greater than -1
-    # 2. The dash string does NOT equal the secret word
     while guesses_left > 0 and not dashes == secret_word:
 
         # Print the amount of dashes and guesses left
         print(" ".join(dashes))
         print('guesses_left: ', str(guesses_left))
 
-        # Ask the user for input
         guess = input("Guess a letter or the whole word:")
         if guess == secret_word:
             print("Excellent! You guessed the whole word correctly! The word was: " + str(secret_word))
             return
-        # Conditions that will print out a message according to
-        # invalid inputs
+
+        # Conditions that will print out a message according to invalid input.
         elif len(guess) != 1:
-          print("Your guess must have exactly one character or the whole word")
+            print("Your guess must have exactly one character or the whole word")
 
-
-        # If the guess is in the secret word then we updtae dashes to replace the
+        # If the guess is in the secret word then we update dashes to replace the
         # corresponding dash with the correct index the guess belongs to in the
         # secret word
         elif guess in secret_word:
-          print("That letter is in the secret word!")
-          dashes = update_dashes(secret_word, dashes, guess)
+            print("That letter is in the secret word!")
+            dashes = update_dashes(secret_word, dashes, guess)
 
-        # If the guess is wrong then we display a message and subtract
-        # the amount of guesses the user has by 1
+        # If the guess is wrong then we display a message.
         else:
-          print("That letter is not in the secret word!")
-          guesses_left -= 1
+            print("That letter is not in the secret word!")
+
+        # For every guess subtract the amount of guesses the user has by 1
+        guesses_left -= 1
 
     if guesses_left == 0:
         print ("You lose. The word was: " + str(secret_word))
